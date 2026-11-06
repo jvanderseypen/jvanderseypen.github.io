@@ -172,12 +172,7 @@ body {
 -------------------------------- */
 
 .book-controls {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 20px;
-    width: auto;
-    /* min-height: 44px;
+    min-height: 44px;
 
     margin-top: 12px;
 
@@ -185,7 +180,9 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    gap: 16px; */
+    width: 100%;
+
+    gap: 16px;
 }
 
 
