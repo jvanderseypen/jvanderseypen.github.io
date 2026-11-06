@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Portfolio Flipbook</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+</head>
+
+<body>
+
+    <main class="viewer">
+
+        <button
+            id="prevBtn"
+            class="navigation-button"
+            type="button"
+            aria-label="Show previous pages"
+        >
+            ◀
+        </button>
+
+        <div class="book">
+
+            <div
+                id="pageViewport"
+                class="page-viewport"
+            >
+                <div class="page-container">
+
+                    <canvas
+                        id="leftPage"
+                        class="page"
+                        aria-label="Left portfolio page"
+                    ></canvas>
+
+                    <canvas
+                        id="rightPage"
+                        class="page"
+                        aria-label="Right portfolio page"
+                    ></canvas>
+
+                </div>
+
+                <div
+                    id="loadingMessage"
+                    class="loading-message"
+                    aria-live="polite"
+                >
+                    Loading portfolio...
+                </div>
+            </div>
+
+            <div class="book-controls">
+
+                <p
+                    id="pageIndicator"
+                    class="page-indicator"
+                    aria-live="polite"
+                ></p>
+
+                <div
+                    class="zoom-controls"
+                    aria-label="Zoom controls"
+                >
+                    <button
+                        id="zoomOutBtn"
+                        class="zoom-button"
+                        type="button"
+                        aria-label="Zoom out"
+                        title="Zoom out"
+                    >
+                        −
+                    </button>
+
+                    <span
+                        id="zoomIndicator"
+                        class="zoom-indicator"
+                        aria-live="polite"
+                    >
+                        100%
+                    </span>
+
+                    <button
+                        id="zoomInBtn"
+                        class="zoom-button"
+                        type="button"
+                        aria-label="Zoom in"
+                        title="Zoom in"
+                    >
+                        +
+                    </button>
+
+                    <button
+                        id="resetZoomBtn"
+                        class="zoom-button reset-zoom-button"
+                        type="button"
+                        aria-label="Reset zoom"
+                        title="Reset zoom"
+                    >
+                        Reset
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            id="nextBtn"
+            class="navigation-button"
+            type="button"
+            aria-label="Show next pages"
+        >
+            ▶
+        </button>
+
+    </main>
+
+    <script
+        type="module"
+        src="js/flipbook.js"
+    ></script>
+
+</body>
+
+</html>
