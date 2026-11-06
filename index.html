@@ -13,7 +13,7 @@
 
     <link
         rel="stylesheet"
-        href="./css/style.css"
+        href="css/style.css"
     >
 </head>
 
@@ -27,37 +27,30 @@
             type="button"
             aria-label="Show previous pages"
         >
-            ◀
+            &#9664;
         </button>
 
         <div class="book">
-
             <div
                 id="pageViewport"
                 class="page-viewport"
             >
                 <div class="page-container">
 
-                    <canvas
+                    <img
                         id="leftPage"
                         class="page"
-                        aria-label="Left portfolio page"
-                    ></canvas>
+                        alt="Left portfolio page"
+                        draggable="false"
+                    >
 
-                    <canvas
+                    <img
                         id="rightPage"
                         class="page"
-                        aria-label="Right portfolio page"
-                    ></canvas>
+                        alt="Right portfolio page"
+                        draggable="false"
+                    >
 
-                </div>
-
-                <div
-                    id="loadingMessage"
-                    class="loading-message"
-                    aria-live="polite"
-                >
-                    Loading portfolio...
                 </div>
             </div>
 
@@ -122,15 +115,12 @@
             type="button"
             aria-label="Show next pages"
         >
-            ▶
+            &#9654;
         </button>
 
     </main>
 
-    <script
-        type="module"
-        src="js/flipbook.js"
-    ></script>
+    <script src="js/flipbook.js"></script>
 
 </body>
 

@@ -8,18 +8,18 @@
 
 html,
 body {
-    min-height: 100%;
+    height: 100%;
+    margin: 0;
 }
 
 body {
-    margin: 0;
     min-height: 100vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 12px;
+    padding: 20px;
 
     background: #222222;
     color: #ffffff;
@@ -36,13 +36,15 @@ body {
 -------------------------------- */
 
 .viewer {
+    position: relative;
     width: 100%;
+    height: 100vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    gap: 12px;
+    /* gap: 12px; */
 }
 
 
@@ -51,7 +53,15 @@ body {
 -------------------------------- */
 
 .book {
+    /*
+     * Uses most of the available screen width while
+     * preserving space for both navigation buttons.
+     */
     width: min(1400px, calc(100vw - 180px));
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -63,6 +73,10 @@ body {
     position: relative;
 
     width: 100%;
+    /* max-height: calc(100vh - 100px); */
+    aspect-ratio: 840 / 297;
+
+    max-height: 80vh;
 
     overflow: hidden;
 
@@ -73,6 +87,10 @@ body {
 
     cursor: default;
 
+    /*
+     * Prevents browser scrolling while dragging a
+     * zoomed page on touchscreens.
+     */
     touch-action: none;
 }
 
@@ -90,12 +108,12 @@ body {
 -------------------------------- */
 
 .page-container {
-    position: relative;
+    position: absolute;
+    inset: 0;
 
     width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
 
     background: #ffffff;
 
@@ -116,53 +134,36 @@ body {
 
 
 /* --------------------------------
-   PDF CANVAS PAGES
+   INDIVIDUAL PAGES
 -------------------------------- */
 
 .page {
-    flex: 0 0 auto;
+    width: 50%;
+    height: 100%;
+
+    /*
+     * Leaves vertical room for the page indicator
+     * and zoom controls.
+     */
+    /* max-height: calc(100vh - 150px); */
 
     display: block;
+
+    object-fit: contain;
 
     background: #ffffff;
 
     user-select: none;
-
-    image-rendering: auto;
+    -webkit-user-drag: none;
 }
 
-.page.is-hidden {
-    visibility: hidden;
-}
-
+/*
+ * Add a subtle separation between the left and
+ * right portfolio pages.
+ */
 #leftPage {
     border-right:
         1px solid rgba(0, 0, 0, 0.12);
-}
-
-
-/* --------------------------------
-   LOADING MESSAGE
--------------------------------- */
-
-.loading-message {
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    min-height: 300px;
-
-    color: #444444;
-    background: #ffffff;
-
-    font-size: 16px;
-}
-
-.loading-message.is-hidden {
-    display: none;
 }
 
 
@@ -171,7 +172,12 @@ body {
 -------------------------------- */
 
 .book-controls {
-    min-height: 44px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    width: auto;
+    /* min-height: 44px;
 
     margin-top: 12px;
 
@@ -179,7 +185,7 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    gap: 16px;
+    gap: 16px; */
 }
 
 
@@ -366,6 +372,14 @@ body {
 
         font-size: 20px;
     }
+
+    .page-viewport {
+        max-height: calc(100vh - 150px);
+    }
+
+    .page {
+        max-height: calc(100vh - 200px);
+    }
 }
 
 
@@ -380,8 +394,12 @@ body {
 
     .page {
         width: 100%;
+        max-height: calc(100vh - 220px);
     }
 
+    /*
+     * Show one page at a time on narrow screens.
+     */
     #rightPage {
         display: none;
     }
